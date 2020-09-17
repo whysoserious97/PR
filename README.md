@@ -33,4 +33,4 @@ SelectColumn email
 SelectFromColumn <column> <pattern> - this statement selects from the specific column the records that matches a regular expresion
 ex:
 SelectFromColumn first_name olf$
-["Randolf"]
+  ["Randolf"]
