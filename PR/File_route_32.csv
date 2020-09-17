@@ -1,0 +1,17 @@
+<<<<<<< HEAD
+id,username,email,created_account_data
+1,nryce0,rpicardo0@gizmodo.com,11/27/2018
+2,rmarkwick1,tcoward1@tinyurl.com,12/18/2018
+5,sbuttress4,kgoulbourne4@miitbeian.gov.cn,12/24/2018
+7,apettinger6,bdarycott6@ehow.com,4/29/2019
+9,pdaniello8,cspilisy8@cpanel.net,6/22/2019
+10,gclift9,rgueste9@joomla.org,1/4/2019
+=======
+id,username,email,created_account_data
+1,nryce0,rpicardo0@gizmodo.com,11/27/2018
+2,rmarkwick1,tcoward1@tinyurl.com,12/18/2018
+5,sbuttress4,kgoulbourne4@miitbeian.gov.cn,12/24/2018
+7,apettinger6,bdarycott6@ehow.com,4/29/2019
+9,pdaniello8,cspilisy8@cpanel.net,6/22/2019
+10,gclift9,rgueste9@joomla.org,1/4/2019
+>>>>>>> e3a4586... Try1

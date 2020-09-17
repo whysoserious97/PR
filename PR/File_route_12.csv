@@ -1,0 +1,17 @@
+<<<<<<< HEAD
+id,first_name,last_name,email,gender,ip_address
+1,Jermayne,Stevings,jstevings0@time.com,Male,126.144.109.82
+3,Tildy,Guiso,tguiso2@wix.com,Female,235.113.1.92
+7,Courtney,Swainger,cswainger6@nbcnews.com,Female,120.31.214.140
+8,Jodi,O'Carroll,jocarroll7@springer.com,Female,92.48.44.22
+9,Katusha,Greenough,kgreenough8@last.fm,Female,71.223.55.209
+10,Court,Munn,cmunn9@pagesperso-orange.fr,Male,213.122.242.170
+=======
+id,first_name,last_name,email,gender,ip_address
+1,Jermayne,Stevings,jstevings0@time.com,Male,126.144.109.82
+3,Tildy,Guiso,tguiso2@wix.com,Female,235.113.1.92
+7,Courtney,Swainger,cswainger6@nbcnews.com,Female,120.31.214.140
+8,Jodi,O'Carroll,jocarroll7@springer.com,Female,92.48.44.22
+9,Katusha,Greenough,kgreenough8@last.fm,Female,71.223.55.209
+10,Court,Munn,cmunn9@pagesperso-orange.fr,Male,213.122.242.170
+>>>>>>> e3a4586... Try1

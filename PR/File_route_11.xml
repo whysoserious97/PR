@@ -1,0 +1,69 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <record>
+        <id>1</id>
+        <first_name>Ora</first_name>
+        <last_name>Syddie</last_name>
+        <bitcoin_address>1CLTQDLrw9t6CRiSypu2Hnd8ubhkkekbTp</bitcoin_address>
+    </record>
+    <record>
+        <id>2</id>
+        <first_name>Stoddard</first_name>
+        <last_name>Kielty</last_name>
+        <bitcoin_address>1LzEd765aq1RxqF3mTTsGac1DA3Bd4ZkxD</bitcoin_address>
+    </record>
+    <record>
+        <id>5</id>
+        <first_name>Wittie</first_name>
+        <last_name>Weller</last_name>
+        <bitcoin_address>14NXYyXmWDFK1JSFEunZ9AJq9mt1Xq3eAV</bitcoin_address>
+    </record>
+    <record>
+        <id>6</id>
+        <first_name>Koral</first_name>
+        <last_name>Bravey</last_name>
+        <bitcoin_address>1Npsbh7Yz1fZKqKnfadg5Uu2yBBfzWjKAZ</bitcoin_address>
+    </record>
+    <record>
+        <id>7</id>
+        <first_name>Brigit</first_name>
+        <last_name>Curless</last_name>
+        <bitcoin_address>1AQKrdRPHMAuGbkPFmmGsPfrCJm8YqS69J</bitcoin_address>
+    </record>
+</dataset>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <record>
+        <id>1</id>
+        <first_name>Ora</first_name>
+        <last_name>Syddie</last_name>
+        <bitcoin_address>1CLTQDLrw9t6CRiSypu2Hnd8ubhkkekbTp</bitcoin_address>
+    </record>
+    <record>
+        <id>2</id>
+        <first_name>Stoddard</first_name>
+        <last_name>Kielty</last_name>
+        <bitcoin_address>1LzEd765aq1RxqF3mTTsGac1DA3Bd4ZkxD</bitcoin_address>
+    </record>
+    <record>
+        <id>5</id>
+        <first_name>Wittie</first_name>
+        <last_name>Weller</last_name>
+        <bitcoin_address>14NXYyXmWDFK1JSFEunZ9AJq9mt1Xq3eAV</bitcoin_address>
+    </record>
+    <record>
+        <id>6</id>
+        <first_name>Koral</first_name>
+        <last_name>Bravey</last_name>
+        <bitcoin_address>1Npsbh7Yz1fZKqKnfadg5Uu2yBBfzWjKAZ</bitcoin_address>
+    </record>
+    <record>
+        <id>7</id>
+        <first_name>Brigit</first_name>
+        <last_name>Curless</last_name>
+        <bitcoin_address>1AQKrdRPHMAuGbkPFmmGsPfrCJm8YqS69J</bitcoin_address>
+    </record>
+</dataset>
+>>>>>>> e3a4586... Try1
