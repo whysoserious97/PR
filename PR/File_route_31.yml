@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 - id: 3
   first_name: Collie
@@ -25,31 +24,3 @@
   card_balance: 
   card_currency: 
 
-=======
----
-- id: 3
-  first_name: Collie
-  last_name: Venable
-  card_number: '6304878179713534098'
-  card_balance: 
-  card_currency: 
-- id: 6
-  first_name: Caroljean
-  last_name: Colwill
-  card_number: '3540356838728217'
-  card_balance: "$8796.02"
-  card_currency: IRR
-- id: 7
-  first_name: Nikki
-  last_name: Arnauduc
-  card_number: '3580161468579083'
-  card_balance: "$9476.63"
-  card_currency: PKR
-- id: 10
-  first_name: Riobard
-  last_name: Smeall
-  card_number: '5307839238517296'
-  card_balance: 
-  card_currency: 
-
->>>>>>> e3a4586... Try1

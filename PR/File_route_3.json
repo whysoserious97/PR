@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 [{"id":1,"first_name":"Foster","last_name":"Ertelt","card_number":"633110490571233798","card_balance":"$9632.09","card_currency":"PKR"},
 {"id":2,"first_name":"Vinni","last_name":"Hulland","card_number":"3572930550290464","card_balance":"$376.34","card_currency":"JPY"},
 {"id":4,"first_name":"Randolf","last_name":"Terbrugge","card_number":"491198425137895662","card_balance":"$7216.38","card_currency":"PLN"},
 {"id":5,"first_name":"Loella","last_name":"Adriano","card_number":"3570354720410328","card_balance":"$7148.32","card_currency":"KZT"},
 {"id":8,"first_name":"Brandise","last_name":"Richichi","card_number":"676288665672350550","card_balance":"$1628.24","card_currency":"IDR"},
 {"id":9,"first_name":"Fielding","last_name":"Solomonides","card_number":"5100145771458404","card_balance":"$647.05","card_currency":"COP"}]
-=======
-[{"id":1,"first_name":"Foster","last_name":"Ertelt","card_number":"633110490571233798","card_balance":"$9632.09","card_currency":"PKR"},
-{"id":2,"first_name":"Vinni","last_name":"Hulland","card_number":"3572930550290464","card_balance":"$376.34","card_currency":"JPY"},
-{"id":4,"first_name":"Randolf","last_name":"Terbrugge","card_number":"491198425137895662","card_balance":"$7216.38","card_currency":"PLN"},
-{"id":5,"first_name":"Loella","last_name":"Adriano","card_number":"3570354720410328","card_balance":"$7148.32","card_currency":"KZT"},
-{"id":8,"first_name":"Brandise","last_name":"Richichi","card_number":"676288665672350550","card_balance":"$1628.24","card_currency":"IDR"},
-{"id":9,"first_name":"Fielding","last_name":"Solomonides","card_number":"5100145771458404","card_balance":"$647.05","card_currency":"COP"}]
->>>>>>> e3a4586... Try1

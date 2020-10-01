@@ -1,11 +1,13 @@
-peopleSet=[]
 
+# Spliting FName
 def split_full_name(pers):
     pers ['first_name'] = pers ['full_name'].split() [0]
     pers ['last_name'] = pers ['full_name'].split() [1]
     pers.pop('full_name')
 
+#Merge info
 def merge(people):
+    peopleSet = []
     skip=False
     for person in people:
         for pers in peopleSet:

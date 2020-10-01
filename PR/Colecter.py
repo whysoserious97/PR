@@ -3,13 +3,14 @@ import re
 import xml.etree.ElementTree as ET
 import yaml
 import csv
-listpeople = []
+
 
 def parseData(paths):
+    listpeople = []
     for path in paths:
         f=open(path, 'r')
         content = f.read()
-#        print(content)
+
         regexp = re.compile(r'\w+\.json')
         if (regexp.search(path)):
             if content[len(content)-3]==',':
@@ -23,9 +24,6 @@ def parseData(paths):
         if (regexp.search(path)):
             tree = ET.parse(path)
             root = tree.getroot()
-            person = {}
-            key = ''
-            #values = {}
             for record in root:
                 person={}
                 for child in record:
@@ -54,4 +52,3 @@ def parseData(paths):
                     person.pop('id')
                     listpeople.append(person)
     return listpeople
-    ##print(person)
