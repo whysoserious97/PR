@@ -1,9 +1,13 @@
 import json
 import random
 import threading
+from time import sleep
+
 import requests
+import concurrent.futures
 
-
+queue=[]
+executor=concurrent.futures.ThreadPoolExecutor(max_workers=7)
 # The method that retrives the data to be saved in a file
 def accessURL(k, ending, token):
     #accessing server
@@ -19,9 +23,8 @@ def accessURL(k, ending, token):
         if 'link' in text:
             dict = json.loads(rs.text) ['link']
             for key in dict:
-                t = threading.Thread(target=accessURL, args=(key, dict [key], token))
-                t.start()
-                threads.append(t)
+                insidefuture = executor.submit(accessURL,key, dict [key], token )
+                queue.append(insidefuture)
 
         #by default is JSON, but if there is mentioned an extension we need to parse it differently
         extension = '.json'
@@ -49,10 +52,11 @@ def getData():
         print(response1.text)
         home ='/home'
         token = json.loads(response1.text) ['access_token']
-        accessURL('home',home,token)
-
-        for thread in threads:
-            thread.join()
+        future=executor.submit(accessURL,'home',home,token)
+        queue.append(future)
+        #accessURL('home',home,token)
+        callout=20
+        sleep(callout)
         return files
 
     print(response1.status_code)
