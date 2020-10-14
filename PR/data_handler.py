@@ -1,7 +1,7 @@
 import data_loader
 import colector
 import merger
-import datafilter
+import data_filter
 
 
 def load_data():
@@ -13,5 +13,5 @@ def load_data():
 def get_database(query, files):
     people = colector.parse_data(files)
     database = merger.merge(people)
-    response = datafilter.to_filter(database, query)
+    response = data_filter.to_filter(database, query)
     return response
