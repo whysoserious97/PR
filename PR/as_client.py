@@ -1,10 +1,11 @@
 import socket
 
-query = input('Insert query:\n')
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((socket.gethostname(), 1234))
 
 while True:
+    query = input('Insert query:\n')
     full_msg = ''
     ##########################
     print('sending' + query)
@@ -13,15 +14,14 @@ while True:
     isNext = True
     while isNext:
         try:
-            msg = s.recv(8)
+            msg = s.recv(2048)
             full_msg += msg.decode('utf-8')
-            if len(msg) < 8:
+            if len(msg) < 2048:
                 isNext = False
         finally:
             pass
 
     print(full_msg)
-    query = input('Insert query:\n')
 
     # SelectColumn email
     # SelectFromColumn first_name Brand
