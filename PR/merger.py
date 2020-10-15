@@ -9,29 +9,28 @@ def split_full_name(pers):
 def merge(people):
     people_set = []
     skip = False
-    for person in people:
-        for pers in people_set:
+    for person1 in people:          # Compare 2 persons like in bubble-sort but from different lists
+        for person2 in people_set:
             # second we need to get first name and last name but avoid full name(as database good practice)
-            in_list_a = False
-            in_list_b = False
-            if 'full_name' in person or 'full_name' in person:
-                if 'full_name' in person:
-                    split_full_name(person)
+            in_list_a = in_list_b = False
+            if 'full_name' in person1 or 'full_name' in person2:
+                if 'full_name' in person1:
+                    split_full_name(person1)
                     in_list_a = True
-                if 'full_name' in pers:
-                    split_full_name(pers)
+                if 'full_name' in person2:
+                    split_full_name(person2)
                     in_list_b = True
             if in_list_a and in_list_b:
-                if person['first_name'] == pers['first_name'] and person['last_name'] == pers['last_name']:
-                    pers.update(person)
+                if person1['first_name'] == person2['first_name'] and person1['last_name'] == person2['last_name']:
+                    person2.update(person1)
                     skip = True
                     continue
-            if 'email' in person and 'email' in pers:  # Condition: if there is a possibility to check emails...
-                if person['email'] == pers['email']:
-                    pers.update(person)
+            if 'email' in person1 and 'email' in person2:  # Condition: if there is a possibility to check emails...
+                if person1['email'] == person2['email']:
+                    person2.update(person1)
                     skip = True
                     continue
         if not skip:
-            people_set.append(person)
+            people_set.append(person1)
         skip = False
     return people_set

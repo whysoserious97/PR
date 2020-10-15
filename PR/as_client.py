@@ -23,5 +23,6 @@ while True:
 
     print(full_msg)
 
+    # Examples for debugging/testing:
     # SelectColumn email
     # SelectFromColumn first_name Brand

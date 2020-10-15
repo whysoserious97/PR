@@ -2,20 +2,19 @@ import re
 
 
 def to_filter(database, query):
-    ########################
+
+    # Setup
     response = []
     split = query.split()
     args = len(split)
-    #########################################
+    column = pattern = ''
     action = split[0]
-    column = ''
     if args > 1:
         column = split[1]
-    pattern = ''
-    ############################
-    if args == 3:
-        pattern = query.split()[2]
-    ############################
+    if args > 2:
+        pattern = split[2]
+
+    # Filtering
     if action == 'SelectColumn':
         for person in database:
             if column in person:
@@ -27,6 +26,7 @@ def to_filter(database, query):
                 regexp = re.compile(pattern)
                 if regexp.search(person[column]):
                     response.append(person[column])
+
     else:
         response.append("Sorry I don't understand you")
     return response
