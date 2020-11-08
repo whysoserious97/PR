@@ -1,10 +1,13 @@
 import hashlib
 import json
+import base64
 m = hashlib.md5()
+
+
 def send_msg(skt,msg,address):
     dict={}
-    dict['msg']=msg
-    m.update(str.encode(msg))
+    dict['msg']=msg.decode()
+    m.update(msg)
     dict['cksm']=m.hexdigest()
     byte_dict=json.dumps(dict)
     bytesToSend  = str.encode(byte_dict)
@@ -25,8 +28,9 @@ def send_msg(skt,msg,address):
 def recieve_msg(skt,bufferSize,address):
 
     body = skt.recvfrom(bufferSize)
-    decoded_body = json.loads(body[0].decode())
-    m.update(str.encode(decoded_body['msg']))
+    decoded_body = json.loads(body[0])
+    msg=decoded_body['msg']
+    m.update(msg.encode())
     a=decoded_body['cksm']  # in the body
     # print('Recieved',decoded_body['cksm'])
     b=m.hexdigest()    # after rehashing
