@@ -13,13 +13,13 @@ def send_msg(skt,msg,address):
     bytesToSend  = str.encode(byte_dict)
     skt.sendto(bytesToSend,address)
 
-    response = skt.recvfrom(1024)
+    response, addr = skt.recvfrom(1024)
     #print(response[0])
-    if response[0] == b'ack':
+    if response == b'ack':
         return
     else:
         i=0
-        while response[0]!=b'ack' and i<4:
+        while response[0] != b'ack' and i < 4:
             i+=1
             skt.sendto(bytesToSend,address)
             response = skt.recvfrom(1024)
