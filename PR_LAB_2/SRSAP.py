@@ -2,7 +2,7 @@
 SRSAP - Secure RSA Protocol )
 '''
 import rsa
-import UDP_protocol
+import PR_LAB_2.UDP_protocol as UDP_protocol
 import base64
 import json
 import pickle
@@ -12,7 +12,7 @@ def create_pub_key(n,e):
     return rsa.PublicKey(int(n),int(e))
 
 def createkeys():
-    (my_pub, my_priv) = rsa.newkeys(512)
+    (my_pub, my_priv) = rsa.newkeys(800)
     return (my_pub,my_priv)
 
 class SRSAP:
@@ -29,7 +29,9 @@ class SRSAP:
         UDP_protocol.send_msg(self.skt,base64.b64encode(crypto),self.address)
 
     def secure_recieve(self):
-        crypto=base64.b64decode(UDP_protocol.recieve_msg(self.skt,1024,self.address))
+        print('Entered')
+        crypto=base64.b64decode(UDP_protocol.recieve_msg(self.skt,10240,self.address))
+        print('exit')
         msg = rsa.decrypt(crypto, self.my_priv)
         message=msg.decode()
         return message

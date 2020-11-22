@@ -1,19 +1,20 @@
 import hashlib
 import json
 import base64
-m = hashlib.md5()
+import random
+from time import sleep
 
 
 def send_msg(skt,msg,address):
     dict={}
     dict['msg']=msg.decode()
+    m = hashlib.md5()
     m.update(msg)
     dict['cksm']=m.hexdigest()
     byte_dict=json.dumps(dict)
     bytesToSend  = str.encode(byte_dict)
     skt.sendto(bytesToSend,address)
-
-    response, addr = skt.recvfrom(1024)
+    response, addr = skt.recvfrom(10240)
     #print(response[0])
     if response == b'ack':
         return
@@ -22,14 +23,16 @@ def send_msg(skt,msg,address):
         while response[0] != b'ack' and i < 4:
             i+=1
             skt.sendto(bytesToSend,address)
-            response = skt.recvfrom(1024)
+            response = skt.recvfrom(10240)
             #print(response[0])
 
 def recieve_msg(skt,bufferSize,address):
 
     body = skt.recvfrom(bufferSize)
+
     decoded_body = json.loads(body[0])
     msg=decoded_body['msg']
+    m = hashlib.md5()
     m.update(msg.encode())
     a=decoded_body['cksm']  # in the body
     # print('Recieved',decoded_body['cksm'])

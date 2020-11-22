@@ -1,33 +1,47 @@
 import socket
-from UDP_protocol import *
-import SRSAP
+from PR_LAB_2.UDP_protocol import *
+import PR_LAB_2.SRSAP as SRSAP
 localIP = "127.0.0.1"
 localPort = 20001
-bufferSize = 1024
+bufferSize = 10240
 
-UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-UDPServerSocket.bind((localIP, localPort))
+class UDP_server:
+    def recieve(self):
+        print('UDP_server')
+        return self.server_SRSAP.secure_recieve()
 
-print("UDP server up and listening")
-connected, address = UDPServerSocket.recvfrom(bufferSize)
-print('Client Connected:',connected)
+    def send(self,msg):
+        self.server_SRSAP.secure_send(msg)
+        response = self.server_SRSAP.secure_recieve()
+        return response
 
-client_n = base64.b64decode(recieve_msg(UDPServerSocket,bufferSize,address)).decode()
-client_e = base64.b64decode(recieve_msg(UDPServerSocket,bufferSize,address)).decode()
-his_key = SRSAP.create_pub_key(client_n, client_e)
-print(client_n)
-keys = SRSAP.createkeys()
+    def __init__(self,destination):
+        self.bufferSize = 10240
+        self.UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+        self.UDPServerSocket.bind(destination)
 
-send_msg(UDPServerSocket,base64.b64encode(str(keys[0].n).encode()),address)
-send_msg(UDPServerSocket,base64.b64encode(str(keys[0].e).encode()),address)
+        print("UDP server up and listening")
+        self.connected, self.address = self.UDPServerSocket.recvfrom(bufferSize)
+        print('Client Connected:',self.connected)
+
+        self.client_n = base64.b64decode(recieve_msg(self.UDPServerSocket,bufferSize,self.address)).decode()
+        self.client_e = base64.b64decode(recieve_msg(self.UDPServerSocket,bufferSize,self.address)).decode()
+        his_key = SRSAP.create_pub_key(self.client_n, self.client_e)
+        #print(client_n)
+        self.keys = SRSAP.createkeys()
+
+        send_msg(self.UDPServerSocket,base64.b64encode(str(self.keys[0].n).encode()),self.address)
+        send_msg(self.UDPServerSocket,base64.b64encode(str(self.keys[0].e).encode()),self.address)
 
 
 
-server_SRSAP = SRSAP.SRSAP(keys[0],keys[1],his_key,UDPServerSocket,address)
-while (True):
-    message = server_SRSAP.secure_recieve()
-    #message=recieve_msg(UDPServerSocket,1024,address)
+        self.server_SRSAP = SRSAP.SRSAP(self.keys[0],self.keys[1],his_key,self.UDPServerSocket,self.address)
 
-    clientMsg = "Client:{}".format(message)
-    print(clientMsg)
-    server_SRSAP.secure_send("Hello From SERVER!!!")
+
+        # while (True):
+        #     message = server_SRSAP.secure_recieve()
+        #     #message=recieve_msg(UDPServerSocket,1024,address)
+        #
+        #     clientMsg = "Client:{}".format(message)
+        #     print(clientMsg)
+        #     server_SRSAP.secure_send("Hello From SERVER!!!")
