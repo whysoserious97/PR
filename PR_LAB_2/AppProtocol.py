@@ -20,12 +20,11 @@ class App_Protocol():
         body['method'] = self.method
         body['parameters'] = self.parameters
         msg = json.dumps(body)
-        print('MSG = ',msg)
         response = self.controler.send(msg)
-        print('RESPONSE = ', response)
         response = json.loads(response)
-        message = response['parameters']
-        return message
+        return response
+        # message = response['parameters']
+        # return message
     def recieve(self):
         return self.controler.recieve()
 

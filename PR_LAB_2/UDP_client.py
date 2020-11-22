@@ -14,7 +14,6 @@ class UDP_client:
     def send(self,msg):
         self.client_SRSAP.secure_send(msg)
         response = self.client_SRSAP.secure_recieve()
-        print('response = ',response)
         return response
 
     def __init__(self,serverAddressPort):

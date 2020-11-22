@@ -29,9 +29,7 @@ class SRSAP:
         UDP_protocol.send_msg(self.skt,base64.b64encode(crypto),self.address)
 
     def secure_recieve(self):
-        print('Entered')
         crypto=base64.b64decode(UDP_protocol.recieve_msg(self.skt,10240,self.address))
-        print('exit')
         msg = rsa.decrypt(crypto, self.my_priv)
         message=msg.decode()
         return message

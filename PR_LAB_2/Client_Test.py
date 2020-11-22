@@ -21,31 +21,25 @@ class CLient:
                 cardInfo = '123_321' #input('The card id: ')
                 self.app_protocol.method = 'check'
                 self.app_protocol.parameters = 'isValidCard ' + cardInfo
-                status = self.app_protocol.send()
+                status = self.app_protocol.send()['parameters']
                 print('CARD VALIDATION' + status)
-
-                cardInfo = '123_321'  # input('The card id: ')
-                self.app_protocol.method = 'check'
-                self.app_protocol.parameters = 'isValidCard ' + cardInfo
-                status = self.app_protocol.send()
-                print('CARD VALIDATION' + status)
-
-
 
                 self.doNextAction(status) # options[0]  Success / Invalid
                 return
             if(self.state == 'Reading Pin'):
-                pin = '1111'#input('Insert your pin')
+                pin = input('Insert your pin')
                 self.app_protocol.method = 'check'
                 self.app_protocol.parameters = 'isValidPIN ' + pin
-                nextAction = self.app_protocol.send() # 'Valid Pin' / Invalid Pin
+                nextAction = self.app_protocol.send()['parameters'] # 'Valid Pin' / Invalid Pin
                 self.doNextAction(nextAction)
                 return
             if(self.state =='Choosing Transaction'):
                 transaction = input('Insert your next operation and arguments separated by SPACE')
                 self.app_protocol.method = 'operation'
                 self.app_protocol.parameters = transaction
-                response = self.app_protocol.send()
+                if transaction == 'Cancel':
+                    self.doNextAction('Cancel')
+                response = self.app_protocol.send()['parameters']
                 print(response)
                 self.doNextAction('Transaction choosed')
                 return
@@ -61,7 +55,7 @@ class CLient:
 
 atm = CLient()
 while True:
-    action ='Insert Card' # input('Insert the card ( "Insert Card" )') #Insert Card
+    action = input('Insert the card ( "Insert Card" )') #Insert Card
     atm.doNextAction(action)
 
 
